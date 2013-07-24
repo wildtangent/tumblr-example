@@ -1,0 +1,14 @@
+<h1>Factory Media Agency Tumblog</h1>
+<ul>
+  <% @posts.each do |post| %>
+    <li>
+      <%= post.embed.html_safe %>
+      <%= post.caption.html_safe %>
+      <ul>
+        <% post.tags.split(",").each do |tag| %>
+          <li><%= link_to("##{tag}", "http://www.tumblr.com/tagged/#{tag}") %></li>
+        <% end %>
+      </ul>
+    </li>
+  <% end %>
+</ul>
